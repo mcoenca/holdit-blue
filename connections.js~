@@ -26,8 +26,7 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 		success: function(donnees){
 			//alert('connection réussie');
 		Connection_success(donnees);
-		localStorage.setItem('username',username);
-		},
+				},
 		error: function(xhr,textStatus,errorThrown){
 		//alert('je suis dans error');
 			//alert('erreur de connection');
@@ -38,6 +37,7 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
 //Connection création
 var Create = function() {
+	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 	//On prend la variable username dans l'input de texte "Nouvel util"
 	username=$('#username_create').val();
 	//on fait la requete POST correspondante
@@ -113,4 +113,93 @@ var Smoke = function() {
 		}
 	});			
 
+};
+
+//Connection au bluetooth
+var Connect_bluetooth = function() {
+	//Test si bluetooth  est activé, sinon message d'erreur
+	bluetoothSerial.isEnabled(
+   	function() { 
+		//Success on fait rien, on appelle la suite
+        	alert("Bluetooth is enabled");
+		//
+		bluetoothSerial.connect(
+		macAddress,
+		function() {
+			//Connection réussie ! Il faudrait afficher un voyant sur l'appli dans la page connection, qui indique si la connection est effective
+			alert('Connexion Success');
+			//On écoute le paquet, le délimiteur est \n the receive_data callback is called whenever data is received
+			bluetoothSerial.subscribe("D",
+			function(data){
+				//On a reçu un message, on envoie ça à la réponse de l'app
+				Answer(data);
+			},
+			function(){
+				alert('Subscription failed');
+			});
+		},
+		function() {
+			//Connection ratée
+			alert('Connexion failed");
+		});
+
+    	},
+    	function() { 
+		//Pas de bluetooth
+        	alert("Bluetooth is not enabled");
+    	}
+	);    
+
+};
+
+//Fonction qui gère la réponse à la demande du paquet : ici alert et on doit cliquer sur ok
+var Answer = function (data) {
+	
+	
+if (canSmoke()==false) {
+	//Si on est hors des objectifs
+
+	//On fait vibrer le portable et beep beep (youpi) !
+	navigator.notification.vibrate(2500);
+	navigator.notification.beep(2);
+
+	//Callback du formulaire de demande avec les connections pour déverouiller le paquet
+	function onConfirm(buttonIndex) {
+    		alert('You selected button ' + buttonIndex);
+		if(buttonIndex==1) {
+			//On accepte de pas fumer c'est cool on affiche une recompense
+			alert('Well held');
+		}
+		else {
+			//On veut fumer quand même, on affiche le chargement du déverouillage
+			alert('Unlocking paquet...');
+			//On envoie le message de déverouillage au paquet
+			bluetoothSerial.write('oD',
+			function() {
+				//En cas de succès
+				alert('Déverouillage réussi');
+			},
+			function(error) {
+				//En cas d'échec
+				alert('Erreur de déverouillage : '+error);
+			});
+		}
+	}
+
+	//On affiche le formulaire de confirmation
+	navigator.notification.confirm(
+    		"This smoke wasn't in your objectives", // message
+    		onConfirm,            // callback to invoke with index of button pressed
+    		'Smoke Request detected?',           // title
+    		["Ok, Hold'it !",'Fuck off you stupid app']     // buttonLabels
+	);
+}
+else {
+	//Si on dans les objectifs On fait rien
+}		
+};
+
+//Fonction des objectifs, pour l'instant vide
+var canSmoke = function() {
+	return false;
 };

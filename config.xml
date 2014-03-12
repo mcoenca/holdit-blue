@@ -9,7 +9,7 @@
     <name>Hold'it</name>
 
     <description>
-           A sample phonegap app where you can log your cigarettes and see reports
+           A sample phonegap app where you can log your cigarettes and see reports. It uses ajax request to a heroku server, geolocation plugin, and enables bluetooth connection with a connected paquet
     </description>
 
     <author email="m.coenca@gmail.com">
@@ -20,6 +20,9 @@
   	 </feature> 
    <!-- <preference name="LoadUrlTimeoutValue" value="50000" /> -->
 <access origin="*" subdomains="true"/>
- <gap:plugin name="org.apache.cordova.geolocation" />
+<gap:plugin name="com.megster.cordova.bluetoothserial" />
+<gap:plugin name="org.apache.cordova.geolocation" />
+<gap:plugin name="org.apache.cordova.vibration" />
+<gap:plugin name="org.apache.cordova.dialogs" />
 
 </widget>

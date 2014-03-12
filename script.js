@@ -1,17 +1,16 @@
 //Attend le chargement du DOM que ce soit en Ruby (page load) ou normal
-//Définition de la variable importante, username
+//Définition de la variable importante, username, et des variables de latitude, longitude et d'adresse du paquet
 var username='';
 var la=0;
 var lon=0;
+var macAddress='';
 
 //Execute après le chargement du DOM
 var ready = function(){
 
-
 //Si on est déja connecté, on triche (haha) et on se connecte automatiquement avec deja_connect=true
 
 if (localStorage.getItem('username')!=null) {
-		
 	username=localStorage.getItem('username');
 	Connect(true);
 }
@@ -109,7 +108,6 @@ else {
 	this.src="assets/icon_logout_white.png";
 	});
 
-};
 
 //Vérifie si le reload de la page provient de rails, ou est normal, pour bien gérer le reload du javascript sur la page home
 $(document).ready(ready);

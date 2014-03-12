@@ -4,6 +4,7 @@
 var Connection_success = function($donnees) {
 	//Connection réussie ! Ici on va écrire les modifications pour passer de non connecté à connecté dans le DOM
 		//alert('connection reussie');
+		localStorage.setItem('username',username);
 		$(".connected").show();
 		$("#title_smoke").text(username);
 		
@@ -11,6 +12,9 @@ var Connection_success = function($donnees) {
 		$(".disconnected").hide();
 		$('#error1').hide();
 		$('#error2').hide();
+		//Initialisation de la connection bluetooth
+		Connect_bluetooth();
+		
 };
 var Connection_failure = function($textStatus,$errorThrown,$creation) {
 	//Connection ou création ratée, on affiche un message d'erreur
