@@ -117,12 +117,13 @@ var Smoke = function() {
 
 //Connection au bluetooth
 var Connect_bluetooth = function() {
+	alert('appel à bluetoothserial.isenabled');
 	//Test si bluetooth  est activé, sinon message d'erreur
 	bluetoothSerial.isEnabled(
    	function() { 
 		//Success on fait rien, on appelle la suite
+	if(enabled==true) {
         	alert("Bluetooth is enabled");
-		//
 		bluetoothSerial.connect(
 		macAddress,
 		function() {
@@ -140,13 +141,18 @@ var Connect_bluetooth = function() {
 		},
 		function() {
 			//Connection ratée
-			alert('Connexion failed');
+			alert(' Connexion failed');
 		});
+	}
+	else {
+		//Sinon on alert qu'il faut activer le bluetooth
+		alert("Bluetooth is not enabled");
+	}
 
     	},
     	function() { 
-		//Pas de bluetooth
-        	alert("Bluetooth is not enabled");
+		//Bluetooth serial failed
+		alert('Bluetooth serial failed');
     	}
 	);    
 

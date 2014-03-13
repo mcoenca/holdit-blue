@@ -117,6 +117,7 @@ var Smoke = function() {
 
 //Connection au bluetooth
 var Connect_bluetooth = function() {
+	alert('appel à bluetoothserial.isenabled');
 	//Test si bluetooth  est activé, sinon message d'erreur
 	bluetoothSerial.isEnabled(
    	function() { 
@@ -140,7 +141,7 @@ var Connect_bluetooth = function() {
 		},
 		function() {
 			//Connection ratée
-			alert('Connexion failed");
+			alert('Connexion failed');
 		});
 
     	},
