@@ -12,9 +12,13 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 	//alert("Apres"+lon);
 	//alert('je suis dans connect');
 
-bluetoothSerial.isEnabled(function (enabled) {
-    alert(enabled); // true or false
-}, failure); 
+bluetoothSerial.isEnabled(function () {
+    alert("Bluetooth activé"); // true or false
+}, 
+function() {
+	alert('Bluetooth pas activé');
+}
+); 
 	if($deja_connect==false){
 		username=$('#username_connect').val();
 	}
