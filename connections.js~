@@ -28,7 +28,7 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 		Connection_success(donnees);
 				},
 		error: function(xhr,textStatus,errorThrown){
-		//alert('je suis dans error');
+			//alert('je suis dans error');
 			//alert('erreur de connection');
 			Connection_failure(textStatus,errorThrown,false);
 		}

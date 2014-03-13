@@ -140,7 +140,7 @@ var Connect_bluetooth = function() {
 		},
 		function() {
 			//Connection ratée
-			alert('Connexion failed");
+			alert('Connexion failed');
 		});
 
     	},

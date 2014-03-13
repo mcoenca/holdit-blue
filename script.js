@@ -10,7 +10,7 @@ var ready = function(){
 
 //Si on est déja connecté, on triche (haha) et on se connecte automatiquement avec deja_connect=true
 
-if (localStorage.getItem('username')!=null) {
+if (localStorage.getItem('username')!=null ) {
 	username=localStorage.getItem('username');
 	Connect(true);
 }
@@ -108,7 +108,7 @@ else {
 	this.src="assets/icon_logout_white.png";
 	});
 
-
+}
 //Vérifie si le reload de la page provient de rails, ou est normal, pour bien gérer le reload du javascript sur la page home
 $(document).ready(ready);
 $(document).on('page:load', ready);
