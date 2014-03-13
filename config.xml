@@ -6,7 +6,7 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>Hold'it</name>
+    <name>Hold'it Bluetooth</name>
 
     <description>
            A sample phonegap app where you can log your cigarettes and see reports. It uses ajax request to a heroku server, geolocation plugin, and enables bluetooth connection with a connected paquet

@@ -5,20 +5,22 @@
 var Connect=function($deja_connect) {
 
 	//On met à jour la géoloc
-
+alert("je met à jour la géoloc");
 navigator.geolocation.getCurrentPosition(onSuccess, onError);
 	//On prend la variable username dans l'input "Connect" si on est pas déja connecté et on le met dans localStorage
 	//alert("Apres"+la);
 	//alert("Apres"+lon);
 	//alert('je suis dans connect');
+alert("je lance le bluetooth");
+bluetoothSerial.isEnabled(
+    function() { 
+        alert("Bluetooth is enabled");
+    },
+    function() { 
+        alert("Bluetooth is *not* enabled");
+    }
+);    
 
-bluetoothSerial.isEnabled(function () {
-    alert("Bluetooth activé"); // true or false
-}, 
-function() {
-	alert('Bluetooth pas activé');
-}
-); 
 	if($deja_connect==false){
 		username=$('#username_connect').val();
 	}
