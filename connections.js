@@ -120,7 +120,7 @@ var Connect_bluetooth = function() {
 	alert('appel à bluetoothserial.isenabled');
 	//Test si bluetooth  est activé, sinon message d'erreur
 	bluetoothSerial.isEnabled(
-   	function() { 
+   	function(enabled) { 
 		//Success on fait rien, on appelle la suite
 	if(enabled==true) {
         	alert("Bluetooth is enabled");
