@@ -20,7 +20,7 @@
   	 </feature> 
    <!-- <preference name="LoadUrlTimeoutValue" value="50000" /> -->
 <access origin="*" subdomains="true"/>
-<gap:plugin name="com.tomvanenckevort.cordova.bluetoothserial" />
+<gap:plugin name="com.megster.cordova.bluetoothserial" />
 <gap:plugin name="org.apache.cordova.geolocation" />
 <gap:plugin name="org.apache.cordova.vibration" />
 <gap:plugin name="org.apache.cordova.dialogs" />
