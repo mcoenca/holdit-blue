@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.phonegap.holditbluetooth"
+        id          = "com.phonegap.example"
         version     = "1.0.0" >
 
     <!-- versionCode is optional and Android only -->
@@ -15,9 +15,9 @@
     <author email="m.coenca@gmail.com">
         John Connecté 
     </author>
- 	<feature name="Geolocation">
+ <!--	<feature name="Geolocation">
      <param name="android-package" value="org.apache.cordova.geolocation" />
-  	 </feature> 
+  	 </feature> -->
    <!-- <preference name="LoadUrlTimeoutValue" value="50000" /> -->
 <gap:plugin name="com.megster.cordova.bluetoothserial" />
 <gap:plugin name="org.apache.cordova.geolocation" />
