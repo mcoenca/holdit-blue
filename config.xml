@@ -19,7 +19,7 @@
      <param name="android-package" value="org.apache.cordova.geolocation" />
   	 </feature> 
    <!-- <preference name="LoadUrlTimeoutValue" value="50000" /> -->
-<gap:plugin name="com.tomvanenckevort.cordova.bluetoothserial" />
+<gap:plugin name="com.megster.cordova.bluetoothserial" />
 <gap:plugin name="org.apache.cordova.geolocation" />
 <gap:plugin name="org.apache.cordova.vibration" />
 <gap:plugin name="org.apache.cordova.dialogs" />
