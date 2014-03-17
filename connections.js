@@ -11,13 +11,13 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 	//alert("Apres"+la);
 	//alert("Apres"+lon);
 	//alert('je suis dans connect');
-alert(la);
-alert(lon);
+//alert(la);
+//alert(lon);
 //alert('Je tente le vibreur');
 	//navigator.notification.vibrate(2500);
 	//navigator.notification.beep(2);
 
-alert('je tente la notification');
+alert("je tente la notification");
 
 	navigator.notification.confirm(
     		"This smoke wasn't in your objectives", // message
