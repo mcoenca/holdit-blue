@@ -147,6 +147,7 @@ var Smoke = function() {
 var Connect_bluetooth = function() {
 	alert('appel à bluetoothserial.isenabled');
 	console.log('appel à bluetoothserial.isenabled');
+navigator.notification.vibrate(2500);
 	//Test si bluetooth  est activé, sinon message d'erreur
 	bluetoothSerial.isEnabled(
    	function() { 
