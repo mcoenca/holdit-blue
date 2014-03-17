@@ -128,12 +128,13 @@ var Smoke = function() {
 //Connection au bluetooth
 var Connect_bluetooth = function() {
 	alert('appel à bluetoothserial.isenabled');
+	console.log('appel à bluetoothserial.isenabled');
 	//Test si bluetooth  est activé, sinon message d'erreur
 	bluetoothSerial.isEnabled(
-   	function(enabled) { 
+   	function() { 
 		//Success on fait rien, on appelle la suite
-	if(enabled==true) {
         	alert("Bluetooth is enabled");
+		console.log('Bluetooth is enabled');
 		bluetoothSerial.connect(
 		macAddress,
 		function() {
@@ -153,18 +154,13 @@ var Connect_bluetooth = function() {
 			//Connection ratée
 			alert(' Connexion failed');
 		});
-	}
-	else {
+	},
+	function() {
 		//Sinon on alert qu'il faut activer le bluetooth
 		alert("Bluetooth is not enabled");
 	}
 
-    	},
-    	function() { 
-		//Bluetooth serial failed
-		alert('Bluetooth serial failed');
-    	}
-	);    
+    	);   
 
 };
 
@@ -174,7 +170,7 @@ var Answer = function (data) {
 	
 if (canSmoke()==false) {
 	//Si on est hors des objectifs
-
+	
 	//On fait vibrer le portable et beep beep (youpi) !
 	navigator.notification.vibrate(2500);
 	navigator.notification.beep(2);
