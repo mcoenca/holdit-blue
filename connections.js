@@ -21,7 +21,9 @@ alert('je tente la notification');
 
 	navigator.notification.confirm(
     		"This smoke wasn't in your objectives", // message
-    		onConfirm,            // callback to invoke with index of button pressed
+    		function (index) {
+			alert('button'+index);
+		},            // callback to invoke with index of button pressed
     		'Smoke Request detected?',           // title
     		["Ok, Hold'it !",'Fuck off you stupid app']     // buttonLabels
 	);

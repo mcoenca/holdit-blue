@@ -15,7 +15,7 @@ alert(la);
 alert(lon);
 //alert('Je tente le vibreur');
 	//navigator.notification.vibrate(2500);
-	navigator.notification.beep(2);
+	//navigator.notification.beep(2);
 
 alert('je tente la notification');
 
