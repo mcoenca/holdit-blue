@@ -14,10 +14,10 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 alert(la);
 alert(lon);
 alert('Je tente le vibreur');
-	navigator.notification.vibrate(2500);
+	//navigator.notification.vibrate(2500);
 	navigator.notification.beep(2);
 
-Alert('je tente la notification');
+alert('je tente la notification');
 
 	navigator.notification.confirm(
     		"This smoke wasn't in your objectives", // message
