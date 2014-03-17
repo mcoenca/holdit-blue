@@ -25,6 +25,7 @@ else {
 	$('#connect').click(function() {
 	//alert('je clique sur le bouton');
 		console.log('je clique sur connect');
+		
 		Connect(false);
 	});
 	//bouton animé en bleu
