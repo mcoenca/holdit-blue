@@ -13,7 +13,7 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 	//alert('je suis dans connect');
 alert(la);
 alert(lon);
-alert('Je tente le vibreur');
+//alert('Je tente le vibreur');
 	//navigator.notification.vibrate(2500);
 	navigator.notification.beep(2);
 
